@@ -1,0 +1,1311 @@
+2026-03-10T13:14:57.146Z  INFO 3260 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Starting CvPlatformApplication using Java 17.0.12 with PID 3260 (C:\Users\user\Downloads\cvplatform\cvplatform\target\classes started by user in C:\Users\user\Downloads\cvplatform)
+2026-03-10T13:14:57.166Z DEBUG 3260 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-10T13:14:57.169Z  INFO 3260 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : The following 1 profile is active: "dev"
+2026-03-10T13:14:57.316Z  INFO 3260 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-10T13:14:57.317Z  INFO 3260 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-10T13:15:01.344Z  INFO 3260 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-10T13:15:01.609Z  INFO 3260 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 244 ms. Found 9 JPA repository interfaces.
+2026-03-10T13:15:06.200Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-10T13:15:06.243Z  INFO 3260 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-10T13:15:06.243Z  INFO 3260 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-10T13:15:06.441Z  INFO 3260 --- [cv-platform] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-10T13:15:06.442Z  INFO 3260 --- [cv-platform] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9123 ms
+2026-03-10T13:15:07.206Z DEBUG 3260 --- [cv-platform] [restartedMain] c.a.p.c.s.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+2026-03-10T13:15:07.208Z DEBUG 3260 --- [cv-platform] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-03-10T13:15:07.209Z DEBUG 3260 --- [cv-platform] [restartedMain] c.a.p.c.security.LoginRateLimitFilter    : Filter 'loginRateLimitFilter' configured for use
+2026-03-10T13:15:07.649Z  INFO 3260 --- [cv-platform] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-10T13:15:07.945Z  INFO 3260 --- [cv-platform] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-03-10T13:15:08.062Z  INFO 3260 --- [cv-platform] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-10T13:15:08.847Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-10T13:15:08.955Z  INFO 3260 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Starting...
+2026-03-10T13:15:10.333Z  INFO 3260 --- [cv-platform] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : CVPlatform-HikariCP-Dev - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b2834d9
+2026-03-10T13:15:10.341Z  INFO 3260 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Start completed.
+2026-03-10T13:15:10.550Z  WARN 3260 --- [cv-platform] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-10T13:15:14.838Z  INFO 3260 --- [cv-platform] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-10T13:15:15.695Z  INFO 3260 --- [cv-platform] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T13:15:17.777Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-10T13:15:21.852Z  WARN 3260 --- [cv-platform] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-10T13:15:21.939Z  WARN 3260 --- [cv-platform] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cdd8b538-11c1-435a-a4f0-743b75e3e7be
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-10T13:15:22.568Z DEBUG 3260 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 51 mappings in 'requestMappingHandlerMapping'
+2026-03-10T13:15:22.684Z DEBUG 3260 --- [cv-platform] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-03-10T13:15:23.154Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-10T13:15:23.409Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e858abb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5238025d, org.springframework.security.web.context.SecurityContextHolderFilter@39a978d1, org.springframework.security.web.header.HeaderWriterFilter@426adec7, org.springframework.web.filter.CorsFilter@a30e88b, org.springframework.security.web.authentication.logout.LogoutFilter@4b2650c8, com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter@20683b35, com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter@6dc738bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@641e4bce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@758e953c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e63b3d2, org.springframework.security.web.session.SessionManagementFilter@28f1e42d, org.springframework.security.web.access.ExceptionTranslationFilter@73fb9f13, org.springframework.security.web.access.intercept.AuthorizationFilter@2c7b0c68]
+2026-03-10T13:15:23.811Z DEBUG 3260 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-10T13:15:23.932Z DEBUG 3260 --- [cv-platform] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-10T13:15:25.022Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-10T13:15:25.247Z  INFO 3260 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-10T13:15:25.303Z  INFO 3260 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Started CvPlatformApplication in 29.487 seconds (process running for 30.874)
+2026-03-10T13:19:55.935Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-10T13:19:55.951Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-10T13:19:55.955Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-03-10T13:19:55.957Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-03-10T13:19:55.957Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2026-03-10T13:19:55.992Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7853ef82
+2026-03-10T13:19:55.993Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6614e601
+2026-03-10T13:19:55.994Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-03-10T13:19:55.994Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 42 ms
+2026-03-10T13:19:56.078Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:19:56.140Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:19:56.215Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 4
+2026-03-10T13:19:56.231Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:19:56.277Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:19:56.301Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:19:56.314Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:19:56.732Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=test.ia@example.com, motDePasse=SecurePass123!)]
+2026-03-10T13:19:56.874Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=test.ia@example.com
+2026-03-10T13:19:56.937Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=test.ia@example.com
+2026-03-10T13:19:57.330Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:19:58.120Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.ahmed.pfa.cvplatform.security.JwtUtil  : Access token généré: email=test.ia@example.com, userId=14, role=ETUDIANT, expiration=15min
+2026-03-10T13:19:58.121Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.service.RefreshTokenService      : Création refresh token pour userId=14
+2026-03-10T13:19:58.123Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.ahmed.pfa.cvplatform.security.JwtUtil  : Refresh token généré: email=test.ia@example.com, userId=14, expiration=7jours
+2026-03-10T13:19:58.192Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        refresh_token
+        (created_at, expires_at, ip_address, revoked, revoked_at, token, user_agent, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-03-10T13:19:58.258Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.service.RefreshTokenService      : Refresh token créé: id=8, userId=14, expiresAt=2026-03-17T13:19:58.123480100
+2026-03-10T13:19:58.259Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.pfa.cvplatform.service.AuthService   : Connexion réussie: userId=14, email=test.ia@example.com, role=ETUDIANT
+2026-03-10T13:19:58.342Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:19:58.356Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthTokenResponse(message=Connexion réussie, userId=14, email=test.ia@example.com, role=ETUDIANT, ac (truncated)...]
+2026-03-10T13:19:58.376Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:20:41.490Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:20:41.492Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:20:41.492Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 4
+2026-03-10T13:20:41.492Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:20:41.495Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:20:41.495Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:20:41.496Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:20:41.498Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=wrong@example.com, motDePasse=WrongPassword!)]
+2026-03-10T13:20:41.499Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=wrong@example.com
+2026-03-10T13:20:41.500Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=wrong@example.com
+2026-03-10T13:20:41.503Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:20:41.507Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: wrong@example.com
+2026-03-10T13:20:41.512Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:20:41.513Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-3] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:20:41.522Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:20:41.527Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:20:41.514 (truncated)...]
+2026-03-10T13:20:41.530Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:20:41.530Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:25:56.466Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:25:56.478Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:25:56.479Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 4
+2026-03-10T13:25:56.480Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:25:56.483Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:25:56.484Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:25:56.485Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:25:56.509Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:25:56.516Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:25:56.522Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:25:56.545Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:25:56.557Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:25:56.560Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:25:56.560Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-6] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:25:56.563Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:25:56.565Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:25:56.561 (truncated)...]
+2026-03-10T13:25:56.568Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:25:56.569Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:25:58.556Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:25:58.558Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:25:58.558Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 3
+2026-03-10T13:25:58.558Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:25:58.559Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:25:58.559Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:25:58.560Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:25:58.562Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:25:58.562Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:25:58.564Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:25:58.566Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:25:58.568Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:25:58.570Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:25:58.570Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:25:58.571Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:25:58.571Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:25:58.570 (truncated)...]
+2026-03-10T13:25:58.572Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:25:58.573Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:26:00.643Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:26:00.645Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:00.646Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 2
+2026-03-10T13:26:00.646Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:26:00.648Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:26:00.648Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:26:00.649Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:26:00.650Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:26:00.651Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:26:00.653Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:26:00.656Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:26:00.659Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:26:00.661Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:26:00.661Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-8] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:26:00.661Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:26:00.662Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:26:00.661 (truncated)...]
+2026-03-10T13:26:00.663Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:26:00.664Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:26:02.467Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:26:02.468Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:02.468Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 1
+2026-03-10T13:26:02.469Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:26:02.470Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:26:02.470Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:26:02.471Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:26:02.472Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:26:02.472Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:26:02.474Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:26:02.477Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:26:02.479Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:26:02.481Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:26:02.481Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:26:02.481Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:26:02.482Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:26:02.481 (truncated)...]
+2026-03-10T13:26:02.483Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:26:02.484Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:26:12.829Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:26:12.830Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:12.830Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 1
+2026-03-10T13:26:12.831Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:26:12.832Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:26:12.832Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:26:12.832Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:26:12.833Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:26:12.833Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:26:12.835Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:26:12.839Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:26:12.841Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:26:12.843Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:26:12.843Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:26:12.843Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:26:12.844Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:26:12.843 (truncated)...]
+2026-03-10T13:26:12.845Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:26:12.845Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:26:14.762Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:26:14.764Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:14.764Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 0
+2026-03-10T13:26:14.765Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:26:14.765Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T13:26:14.766Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T13:26:14.766Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T13:26:14.768Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=attack@test.com, motDePasse=Hack123!)]
+2026-03-10T13:26:14.769Z  INFO 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=attack@test.com
+2026-03-10T13:26:14.773Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=attack@test.com
+2026-03-10T13:26:14.777Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T13:26:14.780Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.pfa.cvplatform.service.AuthService   : Connexion échouée - Utilisateur non trouvé: attack@test.com
+2026-03-10T13:26:14.781Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ahmed.pfa.cvplatform.exception.GlobalExceptionHandler#handleInvalidCredentialsException(InvalidCredentialsException, WebRequest)
+2026-03-10T13:26:14.781Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.e.GlobalExceptionHandler         : Invalid credentials attempt: Email ou mot de passe incorrect
+2026-03-10T13:26:14.782Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-03-10T13:26:14.782Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ErrorResponse(message=Email ou mot de passe incorrect, status=401, timestamp=2026-03-10T13:26:14.782 (truncated)...]
+2026-03-10T13:26:14.783Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.ahmed.pfa.cvplatform.exception.InvalidCredentialsException: Email ou mot de passe incorrect]
+2026-03-10T13:26:14.785Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 401 UNAUTHORIZED
+2026-03-10T13:26:16.653Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T13:26:16.654Z DEBUG 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:16.654Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.service.RateLimitService         : Rate limit exceeded for IP: 0:0:0:0:0:0:0:1
+2026-03-10T13:26:16.654Z  WARN 3260 --- [cv-platform] [http-nio-8080-exec-2] c.a.p.c.security.LoginRateLimitFilter    : SECURITY: Rate limit exceeded for IP: 0:0:0:0:0:0:0:1 on login endpoint
+2026-03-10T13:49:45.424Z  INFO 3260 --- [cv-platform] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T13:49:45.505Z  INFO 3260 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown initiated...
+2026-03-10T13:49:45.514Z  INFO 3260 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown completed.
+2026-03-10T13:57:09.880Z  INFO 7388 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Starting CvPlatformApplication using Java 17.0.12 with PID 7388 (C:\Users\user\Downloads\cvplatform\cvplatform\target\classes started by user in C:\Users\user\Downloads\cvplatform)
+2026-03-10T13:57:09.885Z DEBUG 7388 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-10T13:57:09.888Z  INFO 7388 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : The following 1 profile is active: "dev"
+2026-03-10T13:57:10.012Z  INFO 7388 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-10T13:57:10.012Z  INFO 7388 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-10T13:57:14.844Z  INFO 7388 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-10T13:57:15.124Z  INFO 7388 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 252 ms. Found 9 JPA repository interfaces.
+2026-03-10T13:57:19.467Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-10T13:57:19.510Z  INFO 7388 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-10T13:57:19.511Z  INFO 7388 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-10T13:57:19.747Z  INFO 7388 --- [cv-platform] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-10T13:57:19.748Z  INFO 7388 --- [cv-platform] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9733 ms
+2026-03-10T13:57:20.662Z DEBUG 7388 --- [cv-platform] [restartedMain] c.a.p.c.s.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+2026-03-10T13:57:20.665Z DEBUG 7388 --- [cv-platform] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-03-10T13:57:20.666Z DEBUG 7388 --- [cv-platform] [restartedMain] c.a.p.c.security.LoginRateLimitFilter    : Filter 'loginRateLimitFilter' configured for use
+2026-03-10T13:57:21.131Z  INFO 7388 --- [cv-platform] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-10T13:57:21.322Z  INFO 7388 --- [cv-platform] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-03-10T13:57:21.464Z  INFO 7388 --- [cv-platform] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-10T13:57:22.345Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-10T13:57:22.444Z  INFO 7388 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Starting...
+2026-03-10T13:57:22.992Z  INFO 7388 --- [cv-platform] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : CVPlatform-HikariCP-Dev - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ed66244
+2026-03-10T13:57:22.997Z  INFO 7388 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Start completed.
+2026-03-10T13:57:23.239Z  WARN 7388 --- [cv-platform] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-10T13:57:27.123Z  INFO 7388 --- [cv-platform] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-10T13:57:27.531Z  INFO 7388 --- [cv-platform] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T13:57:29.072Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-10T13:57:32.799Z  WARN 7388 --- [cv-platform] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-10T13:57:32.888Z  WARN 7388 --- [cv-platform] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 98ee4d2f-97ef-47e8-96cf-0f997eecc9b4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-10T13:57:33.492Z DEBUG 7388 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 51 mappings in 'requestMappingHandlerMapping'
+2026-03-10T13:57:33.604Z DEBUG 7388 --- [cv-platform] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-03-10T13:57:34.044Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-10T13:57:34.405Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45ff48dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e1ea10e, org.springframework.security.web.context.SecurityContextHolderFilter@1fe2f962, org.springframework.security.web.header.HeaderWriterFilter@354d5d54, org.springframework.web.filter.CorsFilter@703d4dab, org.springframework.security.web.authentication.logout.LogoutFilter@374a9e81, com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter@52d45e2e, com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter@39e923b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12664a2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d0575fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43ebc553, org.springframework.security.web.session.SessionManagementFilter@64e5fd3f, org.springframework.security.web.access.ExceptionTranslationFilter@7eca547e, org.springframework.security.web.access.intercept.AuthorizationFilter@403bc4f3]
+2026-03-10T13:57:34.760Z DEBUG 7388 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-10T13:57:34.901Z DEBUG 7388 --- [cv-platform] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-10T13:57:36.018Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-10T13:57:36.197Z  INFO 7388 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-10T13:57:36.282Z  INFO 7388 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Started CvPlatformApplication in 27.584 seconds (process running for 28.942)
+2026-03-10T13:57:42.636Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-10T13:57:42.636Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-10T13:57:42.637Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-03-10T13:57:42.637Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-03-10T13:57:42.637Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2026-03-10T13:57:42.639Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@78733b11
+2026-03-10T13:57:42.640Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7df58f1
+2026-03-10T13:57:42.641Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-03-10T13:57:42.641Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-03-10T13:57:42.694Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui.html
+2026-03-10T13:57:42.734Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:42.745Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui.html
+2026-03-10T13:57:42.750Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2026-03-10T13:57:42.756Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2026-03-10T13:57:42.870Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2026-03-10T13:57:42.875Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-03-10T13:57:42.878Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2026-03-10T13:57:42.902Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.html
+2026-03-10T13:57:42.906Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:42.908Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.html
+2026-03-10T13:57:42.909Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2026-03-10T13:57:42.913Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:42.926Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:42.948Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-03-10T13:57:42.951Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui.css
+2026-03-10T13:57:42.952Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.css
+2026-03-10T13:57:42.960Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:42.961Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:42.962Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-03-10T13:57:42.963Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.css
+2026-03-10T13:57:42.963Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2026-03-10T13:57:42.963Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.css", parameters={}
+2026-03-10T13:57:42.965Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:42.965Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:42.965Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:42.967Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css
+2026-03-10T13:57:42.967Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css", parameters={}
+2026-03-10T13:57:42.970Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:42.972Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:42.991Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:43.040Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:43.076Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-03-10T13:57:43.077Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-initializer.js
+2026-03-10T13:57:43.078Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:43.080Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:43.081Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-initializer.js
+2026-03-10T13:57:43.082Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-03-10T13:57:43.082Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2026-03-10T13:57:43.081Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2026-03-10T13:57:43.086Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:43.086Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T13:57:43.102Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:43.157Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:43.467Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs/swagger-config
+2026-03-10T13:57:43.468Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:43.470Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs/swagger-config
+2026-03-10T13:57:43.470Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2026-03-10T13:57:43.471Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2026-03-10T13:57:43.474Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2026-03-10T13:57:43.478Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, filter=false, oauth2RedirectUrl=http://localhost:8080/swagge (truncated)...]
+2026-03-10T13:57:43.486Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T13:57:43.630Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs
+2026-03-10T13:57:43.632Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T13:57:43.634Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs
+2026-03-10T13:57:43.634Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2026-03-10T13:57:43.635Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2026-03-10T13:57:45.673Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 2004 ms
+2026-03-10T13:57:45.756Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2026-03-10T13:57:45.771Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2026-03-10T13:57:45.774Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:19:12.628Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/register
+2026-03-10T14:19:12.696Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:19:12.703Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/register
+2026-03-10T14:19:12.710Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/register", parameters={}
+2026-03-10T14:19:12.713Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#register(RegisterRequest)
+2026-03-10T14:19:13.052Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [RegisterRequest(nom=Swagger, prenom=Test, email=swagger.test@example.com, motDePasse=TestSwagger123! (truncated)...]
+2026-03-10T14:19:13.237Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.v.PasswordConstraintValidator    : Mot de passe valide: toutes les contraintes respectées
+2026-03-10T14:19:13.280Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.controller.AuthController        : Requête d'inscription reçue: email=swagger.test@example.com
+2026-03-10T14:19:13.335Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.pfa.cvplatform.service.AuthService   : Tentative d'inscription: email=swagger.test@example.com, role=ETUDIANT
+2026-03-10T14:19:13.562Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        utilisateur u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-03-10T14:19:13.826Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        utilisateur
+        (date_creation, email, mot_de_passe, nom, prenom, role, type_utilisateur) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-03-10T14:19:13.885Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        etudiant
+        (domaine_etude, niveau_etude, universite, id) 
+    values
+        (?, ?, ?, ?)
+2026-03-10T14:19:13.905Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.pfa.cvplatform.service.AuthService   : Étudiant créé avec succès: id=15, email=swagger.test@example.com
+2026-03-10T14:19:13.966Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json]
+2026-03-10T14:19:13.967Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthResponse(message=Étudiant créé avec succès, userId=15, email=swagger.test@example.com, token=nul (truncated)...]
+2026-03-10T14:19:13.973Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:22:55.538Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T14:22:55.539Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T14:22:55.567Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 4
+2026-03-10T14:22:55.568Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:22:55.569Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T14:22:55.570Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T14:22:55.570Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T14:22:55.574Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=swagger.test@example.com, motDePasse=TestSwagger123!)]
+2026-03-10T14:22:55.579Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=swagger.test@example.com
+2026-03-10T14:22:55.581Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=swagger.test@example.com
+2026-03-10T14:22:55.619Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T14:22:55.916Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.ahmed.pfa.cvplatform.security.JwtUtil  : Access token généré: email=swagger.test@example.com, userId=15, role=ETUDIANT, expiration=15min
+2026-03-10T14:22:55.918Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.service.RefreshTokenService      : Création refresh token pour userId=15
+2026-03-10T14:22:55.919Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.ahmed.pfa.cvplatform.security.JwtUtil  : Refresh token généré: email=swagger.test@example.com, userId=15, expiration=7jours
+2026-03-10T14:22:55.927Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        refresh_token
+        (created_at, expires_at, ip_address, revoked, revoked_at, token, user_agent, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-03-10T14:22:55.937Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.service.RefreshTokenService      : Refresh token créé: id=9, userId=15, expiresAt=2026-03-17T14:22:55.920746
+2026-03-10T14:22:55.937Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.pfa.cvplatform.service.AuthService   : Connexion réussie: userId=15, email=swagger.test@example.com, role=ETUDIANT
+2026-03-10T14:22:55.951Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json]
+2026-03-10T14:22:55.959Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthTokenResponse(message=Connexion réussie, userId=15, email=swagger.test@example.com, role=ETUDIAN (truncated)...]
+2026-03-10T14:22:55.961Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:39:21.629Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/users/test
+2026-03-10T14:39:21.756Z ERROR 7388 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.s.JwtAuthenticationFilter        : Erreur lors de l'authentification JWT: JWT expired 86750 milliseconds ago at 2026-03-10T14:37:55.000Z. Current time: 2026-03-10T14:39:21.750Z. Allowed clock skew: 0 milliseconds.
+
+io.jsonwebtoken.ExpiredJwtException: JWT expired 86750 milliseconds ago at 2026-03-10T14:37:55.000Z. Current time: 2026-03-10T14:39:21.750Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:682) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:797) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractAllClaims(JwtUtil.java:193) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractClaim(JwtUtil.java:182) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractEmail(JwtUtil.java:134) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter.doFilterInternal(LoginRateLimitFilter.java:77) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-10T14:39:21.770Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:39:21.791Z  WARN 7388 --- [cv-platform] [http-nio-8080-exec-7] c.a.p.c.s.JwtAuthenticationEntryPoint    : Tentative d'accès non autorisée: /api/users/test
+2026-03-10T14:41:54.704Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/users/test
+2026-03-10T14:41:54.729Z ERROR 7388 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.s.JwtAuthenticationFilter        : Erreur lors de l'authentification JWT: Compact JWT strings may not contain whitespace.
+
+io.jsonwebtoken.MalformedJwtException: Compact JWT strings may not contain whitespace.
+	at io.jsonwebtoken.impl.JwtTokenizer.tokenize(JwtTokenizer.java:67) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:370) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:797) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractAllClaims(JwtUtil.java:193) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractClaim(JwtUtil.java:182) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractEmail(JwtUtil.java:134) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter.doFilterInternal(LoginRateLimitFilter.java:77) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-10T14:41:54.739Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:41:54.741Z  WARN 7388 --- [cv-platform] [http-nio-8080-exec-9] c.a.p.c.s.JwtAuthenticationEntryPoint    : Tentative d'accès non autorisée: /api/users/test
+2026-03-10T14:42:30.695Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/users/test
+2026-03-10T14:42:30.696Z ERROR 7388 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.s.JwtAuthenticationFilter        : Erreur lors de l'authentification JWT: Compact JWT strings may not contain whitespace.
+
+io.jsonwebtoken.MalformedJwtException: Compact JWT strings may not contain whitespace.
+	at io.jsonwebtoken.impl.JwtTokenizer.tokenize(JwtTokenizer.java:67) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:370) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:797) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractAllClaims(JwtUtil.java:193) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractClaim(JwtUtil.java:182) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractEmail(JwtUtil.java:134) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter.doFilterInternal(LoginRateLimitFilter.java:77) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-10T14:42:30.702Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:42:30.702Z  WARN 7388 --- [cv-platform] [http-nio-8080-exec-1] c.a.p.c.s.JwtAuthenticationEntryPoint    : Tentative d'accès non autorisée: /api/users/test
+2026-03-10T14:42:37.546Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /api/users/test
+2026-03-10T14:42:37.549Z ERROR 7388 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.s.JwtAuthenticationFilter        : Erreur lors de l'authentification JWT: Compact JWT strings may not contain whitespace.
+
+io.jsonwebtoken.MalformedJwtException: Compact JWT strings may not contain whitespace.
+	at io.jsonwebtoken.impl.JwtTokenizer.tokenize(JwtTokenizer.java:67) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:370) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:797) ~[jjwt-impl-0.12.3.jar:0.12.3]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractAllClaims(JwtUtil.java:193) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractClaim(JwtUtil.java:182) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtUtil.extractEmail(JwtUtil.java:134) ~[classes/:na]
+	at com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:61) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter.doFilterInternal(LoginRateLimitFilter.java:77) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.4.jar:6.2.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-10T14:42:37.554Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:42:37.556Z  WARN 7388 --- [cv-platform] [http-nio-8080-exec-10] c.a.p.c.s.JwtAuthenticationEntryPoint    : Tentative d'accès non autorisée: /api/users/test
+2026-03-10T14:44:08.104Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-03-10T14:44:08.107Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.security.LoginRateLimitFilter    : Rate limit check for login attempt from IP: 0:0:0:0:0:0:0:1
+2026-03-10T14:44:08.107Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.service.RateLimitService         : Login attempt allowed for IP: 0:0:0:0:0:0:0:1 - Remaining tokens: 4
+2026-03-10T14:44:08.107Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:44:08.107Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-03-10T14:44:08.107Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-03-10T14:44:08.113Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.AuthController#login(LoginRequest)
+2026-03-10T14:44:08.144Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [LoginRequest(email=swagger.test@example.com, motDePasse=TestSwagger123!)]
+2026-03-10T14:44:08.144Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.controller.AuthController        : Requête de connexion reçue: email=swagger.test@example.com
+2026-03-10T14:44:08.157Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.pfa.cvplatform.service.AuthService   : Tentative de connexion: email=swagger.test@example.com
+2026-03-10T14:44:08.190Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        case 
+            when u1_1.id is not null 
+                then 1 
+            when u1_2.id is not null 
+                then 2 
+            end,
+            u1_0.date_creation,
+            u1_0.email,
+            u1_0.mot_de_passe,
+            u1_0.nom,
+            u1_0.prenom,
+            u1_0.role,
+            u1_0.type_utilisateur,
+            u1_1.date_derniere_connexion,
+            u1_1.permissions,
+            u1_2.id,
+            u1_2.domaine_etude,
+            u1_2.niveau_etude,
+            u1_2.universite 
+        from
+            utilisateur u1_0 
+        left join
+            administrateur u1_1 
+                on u1_0.id=u1_1.id 
+        left join
+            etudiant u1_2 
+                on u1_0.id=u1_2.id 
+        where
+            u1_0.email=?
+2026-03-10T14:44:08.426Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.ahmed.pfa.cvplatform.security.JwtUtil  : Access token généré: email=swagger.test@example.com, userId=15, role=ETUDIANT, expiration=15min
+2026-03-10T14:44:08.426Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.service.RefreshTokenService      : Création refresh token pour userId=15
+2026-03-10T14:44:08.426Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] c.ahmed.pfa.cvplatform.security.JwtUtil  : Refresh token généré: email=swagger.test@example.com, userId=15, expiration=7jours
+2026-03-10T14:44:08.426Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        refresh_token
+        (created_at, expires_at, ip_address, revoked, revoked_at, token, user_agent, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-03-10T14:44:08.441Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.p.c.service.RefreshTokenService      : Refresh token créé: id=10, userId=15, expiresAt=2026-03-17T14:44:08.426118100
+2026-03-10T14:44:08.441Z  INFO 7388 --- [cv-platform] [http-nio-8080-exec-4] c.a.pfa.cvplatform.service.AuthService   : Connexion réussie: userId=15, email=swagger.test@example.com, role=ETUDIANT
+2026-03-10T14:44:08.457Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json, application/*+json]
+2026-03-10T14:44:08.457Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthTokenResponse(message=Connexion réussie, userId=15, email=swagger.test@example.com, role=ETUDIAN (truncated)...]
+2026-03-10T14:44:08.471Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:45:11.744Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/users/test
+2026-03-10T14:45:11.759Z  WARN 7388 --- [cv-platform] [http-nio-8080-exec-5] c.ahmed.pfa.cvplatform.security.JwtUtil  : validateToken() deprecated, utiliser validateAccessToken()
+2026-03-10T14:45:11.770Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.ahmed.pfa.cvplatform.security.JwtUtil  : Access token valide: swagger.test@example.com
+2026-03-10T14:45:11.778Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.s.JwtAuthenticationFilter        : Token valide - email: swagger.test@example.com, userId: 15, role: ETUDIANT
+2026-03-10T14:45:11.780Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] c.a.p.c.s.JwtAuthenticationFilter        : Utilisateur authentifié: email=swagger.test@example.com, userId=15, role=ETUDIANT
+2026-03-10T14:45:11.784Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/users/test
+2026-03-10T14:45:11.784Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/users/test", parameters={}
+2026-03-10T14:45:11.786Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ahmed.pfa.cvplatform.controller.UserController#test()
+2026-03-10T14:45:11.786Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, application/json, application/*+json]
+2026-03-10T14:45:11.786Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Le contrôleur des utilisateurs fonctionne correctement !"]
+2026-03-10T14:45:11.794Z DEBUG 7388 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:47:07.506Z  INFO 7388 --- [cv-platform] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T14:47:07.548Z  INFO 7388 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown initiated...
+2026-03-10T14:47:07.561Z  INFO 7388 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown completed.
+2026-03-10T14:52:49.623Z  INFO 13804 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Starting CvPlatformApplication using Java 17.0.12 with PID 13804 (C:\Users\user\Downloads\cvplatform\cvplatform\target\classes started by user in C:\Users\user\Downloads\cvplatform)
+2026-03-10T14:52:49.627Z DEBUG 13804 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-10T14:52:49.629Z  INFO 13804 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : The following 1 profile is active: "dev"
+2026-03-10T14:52:49.829Z  INFO 13804 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-10T14:52:49.829Z  INFO 13804 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-10T14:52:57.048Z  INFO 13804 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-10T14:52:57.883Z  INFO 13804 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 698 ms. Found 9 JPA repository interfaces.
+2026-03-10T14:53:01.477Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-10T14:53:01.507Z  INFO 13804 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-10T14:53:01.508Z  INFO 13804 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-10T14:53:03.234Z  INFO 13804 --- [cv-platform] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-10T14:53:03.234Z  INFO 13804 --- [cv-platform] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 13403 ms
+2026-03-10T14:53:04.561Z DEBUG 13804 --- [cv-platform] [restartedMain] c.a.p.c.s.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+2026-03-10T14:53:04.563Z DEBUG 13804 --- [cv-platform] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-03-10T14:53:04.565Z DEBUG 13804 --- [cv-platform] [restartedMain] c.a.p.c.security.LoginRateLimitFilter    : Filter 'loginRateLimitFilter' configured for use
+2026-03-10T14:53:05.076Z  INFO 13804 --- [cv-platform] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-10T14:53:05.372Z  INFO 13804 --- [cv-platform] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-03-10T14:53:05.493Z  INFO 13804 --- [cv-platform] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-10T14:53:06.449Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-10T14:53:06.529Z  INFO 13804 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Starting...
+2026-03-10T14:53:07.061Z  INFO 13804 --- [cv-platform] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : CVPlatform-HikariCP-Dev - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ce62ce5
+2026-03-10T14:53:07.087Z  INFO 13804 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Start completed.
+2026-03-10T14:53:07.692Z  WARN 13804 --- [cv-platform] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-10T14:53:12.251Z  INFO 13804 --- [cv-platform] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-10T14:53:12.715Z  INFO 13804 --- [cv-platform] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T14:53:14.430Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-10T14:53:19.727Z  WARN 13804 --- [cv-platform] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-10T14:53:19.811Z  WARN 13804 --- [cv-platform] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b0f72537-2e0a-405c-b8c0-a148abaa7878
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-10T14:53:20.530Z DEBUG 13804 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 51 mappings in 'requestMappingHandlerMapping'
+2026-03-10T14:53:20.648Z DEBUG 13804 --- [cv-platform] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-03-10T14:53:21.183Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-10T14:53:22.132Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b270f21, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4db6c857, org.springframework.security.web.context.SecurityContextHolderFilter@47d07fba, org.springframework.security.web.header.HeaderWriterFilter@3d925b6c, org.springframework.web.filter.CorsFilter@56b4eba3, org.springframework.security.web.authentication.logout.LogoutFilter@7be51751, com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter@649d9eb8, com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter@798f0656, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46727bbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2287506c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c98cac6, org.springframework.security.web.session.SessionManagementFilter@2b679a73, org.springframework.security.web.access.ExceptionTranslationFilter@6917a707, org.springframework.security.web.access.intercept.AuthorizationFilter@5f64bcc8]
+2026-03-10T14:53:23.247Z DEBUG 13804 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-10T14:53:23.401Z DEBUG 13804 --- [cv-platform] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-10T14:53:24.649Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-10T14:53:24.865Z  INFO 13804 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-10T14:53:24.929Z  INFO 13804 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Started CvPlatformApplication in 37.015 seconds (process running for 38.598)
+2026-03-10T14:54:08.184Z  INFO 13804 --- [cv-platform] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-10T14:54:08.188Z  INFO 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-10T14:54:08.188Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-03-10T14:54:08.188Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-03-10T14:54:08.189Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2026-03-10T14:54:08.189Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6c796135
+2026-03-10T14:54:08.189Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@14e3d2bb
+2026-03-10T14:54:08.189Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-03-10T14:54:08.189Z  INFO 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-10T14:54:08.315Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui.html
+2026-03-10T14:54:08.392Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:08.448Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui.html
+2026-03-10T14:54:08.453Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui.html", parameters={}
+2026-03-10T14:54:08.472Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2026-03-10T14:54:08.793Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2026-03-10T14:54:08.797Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-03-10T14:54:08.803Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2026-03-10T14:54:08.872Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.html
+2026-03-10T14:54:08.875Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:08.879Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.html
+2026-03-10T14:54:08.879Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2026-03-10T14:54:08.885Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:08.906Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.035Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-03-10T14:54:09.037Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-03-10T14:54:09.038Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.040Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.040Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-03-10T14:54:09.040Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2026-03-10T14:54:09.040Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-03-10T14:54:09.042Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2026-03-10T14:54:09.044Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.044Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.064Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.049Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui.css
+2026-03-10T14:54:09.099Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-initializer.js
+2026-03-10T14:54:09.099Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.101Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.css
+2026-03-10T14:54:09.103Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.103Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css
+2026-03-10T14:54:09.103Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.106Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css", parameters={}
+2026-03-10T14:54:09.107Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-initializer.js
+2026-03-10T14:54:09.107Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2026-03-10T14:54:09.107Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.107Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.107Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.111Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.css
+2026-03-10T14:54:09.111Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.css", parameters={}
+2026-03-10T14:54:09.114Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.122Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.123Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.171Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.369Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs/swagger-config
+2026-03-10T14:54:09.369Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.369Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs/swagger-config
+2026-03-10T14:54:09.369Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2026-03-10T14:54:09.369Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2026-03-10T14:54:09.376Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2026-03-10T14:54:09.379Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, filter=false, oauth2RedirectUrl=http://localhost:8080/swagge (truncated)...]
+2026-03-10T14:54:09.389Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.432Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/favicon-32x32.png
+2026-03-10T14:54:09.436Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.460Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/favicon-32x32.png
+2026-03-10T14:54:09.462Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2026-03-10T14:54:09.466Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-03-10T14:54:09.479Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:54:09.513Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs
+2026-03-10T14:54:09.513Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-03-10T14:54:09.513Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs
+2026-03-10T14:54:09.513Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2026-03-10T14:54:09.519Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2026-03-10T14:54:13.133Z  INFO 13804 --- [cv-platform] [http-nio-8080-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 3570 ms
+2026-03-10T14:54:13.234Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2026-03-10T14:54:13.249Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2026-03-10T14:54:13.249Z DEBUG 13804 --- [cv-platform] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-10T14:58:04.775Z  INFO 13804 --- [cv-platform] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T14:58:04.787Z  INFO 13804 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown initiated...
+2026-03-10T14:58:04.808Z  INFO 13804 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown completed.
+2026-03-10T15:13:28.790Z  INFO 8268 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Starting CvPlatformApplication using Java 17.0.12 with PID 8268 (C:\Users\user\Downloads\cvplatform\cvplatform\target\classes started by user in C:\Users\user\Downloads\cvplatform)
+2026-03-10T15:13:28.793Z DEBUG 8268 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-10T15:13:28.795Z  INFO 8268 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : The following 1 profile is active: "dev"
+2026-03-10T15:13:28.897Z  INFO 8268 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-10T15:13:28.897Z  INFO 8268 --- [cv-platform] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-10T15:13:31.937Z  INFO 8268 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-10T15:13:32.395Z  INFO 8268 --- [cv-platform] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 423 ms. Found 9 JPA repository interfaces.
+2026-03-10T15:13:36.118Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-10T15:13:36.215Z  INFO 8268 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-10T15:13:36.217Z  INFO 8268 --- [cv-platform] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-10T15:13:36.446Z  INFO 8268 --- [cv-platform] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-10T15:13:36.446Z  INFO 8268 --- [cv-platform] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7547 ms
+2026-03-10T15:13:37.507Z DEBUG 8268 --- [cv-platform] [restartedMain] c.a.p.c.s.JwtAuthenticationFilter        : Filter 'jwtAuthenticationFilter' configured for use
+2026-03-10T15:13:37.512Z DEBUG 8268 --- [cv-platform] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-03-10T15:13:37.513Z DEBUG 8268 --- [cv-platform] [restartedMain] c.a.p.c.security.LoginRateLimitFilter    : Filter 'loginRateLimitFilter' configured for use
+2026-03-10T15:13:38.049Z  INFO 8268 --- [cv-platform] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-10T15:13:38.480Z  INFO 8268 --- [cv-platform] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-03-10T15:13:38.636Z  INFO 8268 --- [cv-platform] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-10T15:13:39.428Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-10T15:13:39.555Z  INFO 8268 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Starting...
+2026-03-10T15:13:40.168Z  INFO 8268 --- [cv-platform] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : CVPlatform-HikariCP-Dev - Added connection com.mysql.cj.jdbc.ConnectionImpl@718e31ab
+2026-03-10T15:13:40.172Z  INFO 8268 --- [cv-platform] [restartedMain] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Start completed.
+2026-03-10T15:13:40.363Z  WARN 8268 --- [cv-platform] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-10T15:13:46.155Z  INFO 8268 --- [cv-platform] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-10T15:13:46.753Z  INFO 8268 --- [cv-platform] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T15:13:49.174Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-10T15:13:54.554Z  WARN 8268 --- [cv-platform] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-10T15:13:54.651Z  WARN 8268 --- [cv-platform] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 39e8d0b6-5d02-41e3-8e4b-ec9d90aded22
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-10T15:13:55.172Z DEBUG 8268 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 51 mappings in 'requestMappingHandlerMapping'
+2026-03-10T15:13:55.299Z DEBUG 8268 --- [cv-platform] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-03-10T15:13:55.678Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-10T15:13:55.907Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26043e60, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42abdaea, org.springframework.security.web.context.SecurityContextHolderFilter@73cf3ea2, org.springframework.security.web.header.HeaderWriterFilter@2696c5c4, org.springframework.web.filter.CorsFilter@9de6218, org.springframework.security.web.authentication.logout.LogoutFilter@a4daae6, com.ahmed.pfa.cvplatform.security.LoginRateLimitFilter@6ab8d8b6, com.ahmed.pfa.cvplatform.security.JwtAuthenticationFilter@5cea19cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e24738f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6873f9e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a333bad, org.springframework.security.web.session.SessionManagementFilter@1edf0bc1, org.springframework.security.web.access.ExceptionTranslationFilter@75c4b2a8, org.springframework.security.web.access.intercept.AuthorizationFilter@3f9755ca]
+2026-03-10T15:13:56.273Z DEBUG 8268 --- [cv-platform] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-10T15:13:56.479Z DEBUG 8268 --- [cv-platform] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-10T15:13:57.543Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-10T15:13:57.860Z  INFO 8268 --- [cv-platform] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-10T15:13:57.963Z  INFO 8268 --- [cv-platform] [restartedMain] c.a.p.cvplatform.CvPlatformApplication   : Started CvPlatformApplication in 29.992 seconds (process running for 31.024)
+2026-03-10T15:15:03.719Z  INFO 8268 --- [cv-platform] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-10T15:15:03.734Z  INFO 8268 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown initiated...
+2026-03-10T15:15:03.753Z  INFO 8268 --- [cv-platform] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : CVPlatform-HikariCP-Dev - Shutdown completed.

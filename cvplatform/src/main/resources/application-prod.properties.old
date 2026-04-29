@@ -1,0 +1,75 @@
+# ==================================================
+# Production Configuration (CV Platform)
+# ==================================================
+spring.config.activate.on-profile=prod
+
+# 1. Database Production (Uses Environment Variables)
+# --------------------------------------------------
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# 2. JPA/Hibernate Configuration (Production)
+# --------------------------------------------------
+# TODO AVANT PRODUCTION RÉELLE:
+# - Implémenter Flyway pour migrations versionnées (V1__init.sql)
+# - Passer ddl-auto à 'none' ou 'validate' une fois le schéma stable
+# Actuellement: ddl-auto est en 'update' pour flexibilité PFA
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=false
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# 3. Hikari Connection Pool (Optimized for Load)
+# --------------------------------------------------
+spring.datasource.hikari.maximum-pool-size=50
+spring.datasource.hikari.minimum-idle=10
+spring.datasource.hikari.connection-timeout=20000
+spring.datasource.hikari.idle-timeout=300000
+spring.datasource.hikari.max-lifetime=1200000
+spring.datasource.hikari.leak-detection-threshold=60000
+spring.datasource.hikari.pool-name=CVPlatform-HikariCP-Prod
+spring.datasource.hikari.connection-test-query=SELECT 1
+
+# 4. JWT Production Security
+# --------------------------------------------------
+jwt.secret=${JWT_SECRET}
+jwt.expiration=86400000
+
+# 5. Actuator Configuration (Monitoring)
+# --------------------------------------------------
+management.endpoints.web.exposure.include=health,info,metrics
+management.endpoint.health.show-details=when-authorized
+management.endpoint.health.show-components=when-authorized
+management.health.defaults.enabled=true
+management.health.diskspace.enabled=true
+management.health.db.enabled=true
+management.endpoints.web.base-path=/actuator
+
+# 6. Application Info
+# --------------------------------------------------
+info.app.name=CV Platform
+info.app.description=Plateforme de gestion de CVs avec analyse IA
+info.app.version=1.0.0
+info.app.encoding=@project.build.sourceEncoding@
+info.app.java.version=@java.version@
+
+# 7. Logging Configuration (Production - Error Focus)
+# --------------------------------------------------
+# Root level set to WARN to avoid log flooding
+logging.level.root=WARN
+logging.level.com.ahmed.pfa.cvplatform=INFO
+logging.level.org.springframework.web=WARN
+logging.level.org.hibernate.SQL=ERROR
+
+# Structured logging for files
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} : %msg%n
+
+# File logging & Rotation
+logging.file.name=${LOG_FILE:logs/cvplatform-prod.log}
+logging.file.max-size=50MB
+logging.file.max-history=30
+logging.file.total-size-cap=1GB
