@@ -1,16 +1,18 @@
 package com.ahmed.pfa.cvplatform.service;
-
 import com.ahmed.pfa.cvplatform.dto.AIAnalysisResult;
 import com.ahmed.pfa.cvplatform.dto.AnalyseResponse;
 import com.ahmed.pfa.cvplatform.dto.RecommandationResponse;
 import com.ahmed.pfa.cvplatform.exception.ResourceNotFoundException;
+import com.ahmed.pfa.cvplatform.exception.UnauthorizedException;
 import com.ahmed.pfa.cvplatform.model.AnalyseIA;
 import com.ahmed.pfa.cvplatform.model.CV;
 import com.ahmed.pfa.cvplatform.model.OffreEmploi;
+import com.ahmed.pfa.cvplatform.model.OffrePrivee;
 import com.ahmed.pfa.cvplatform.model.Recommandation;
 import com.ahmed.pfa.cvplatform.repository.AnalyseIARepository;
 import com.ahmed.pfa.cvplatform.repository.CVRepository;
 import com.ahmed.pfa.cvplatform.repository.OffreEmploiRepository;
+import com.ahmed.pfa.cvplatform.repository.OffrePriveeRepository;
 import com.ahmed.pfa.cvplatform.repository.RecommandationRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,20 +21,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class AnalyseService {
-
     private static final Logger logger = LoggerFactory.getLogger(AnalyseService.class);
 
     @Autowired private AnalyseIARepository analyseIARepository;
     @Autowired private RecommandationRepository recommandationRepository;
     @Autowired private CVRepository cvRepository;
     @Autowired private OffreEmploiRepository offreEmploiRepository;
+    @Autowired private OffrePriveeRepository offrePriveeRepository; // ⚠ Injection ajoutée
     @Autowired private AIClientService aiClientService;
     @Autowired private ObjectMapper objectMapper;
 
@@ -45,10 +46,10 @@ public class AnalyseService {
         logger.info("Lancement analyse: cvId={}, offreId={}", cvId, offreEmploiId);
 
         CV cv = cvRepository.findById(cvId)
-                .orElseThrow(() -> new ResourceNotFoundException("CV", cvId));
+                .orElseThrow(() -> new ResourceNotFoundException("CV ", cvId));
 
         OffreEmploi offre = offreEmploiRepository.findById(offreEmploiId)
-                .orElseThrow(() -> new ResourceNotFoundException("Offre d'emploi", offreEmploiId));
+                .orElseThrow(() -> new ResourceNotFoundException("Offre d'emploi ", offreEmploiId));
 
         AnalyseIA analyse = new AnalyseIA();
         analyse.setCv(cv);
@@ -64,7 +65,7 @@ public class AnalyseService {
 
             if (cvText == null || cvText.isBlank()) {
                 throw new RuntimeException(
-                        "Impossible d'extraire le texte du CV '" + cv.getNomFichier() + "'."
+                        "Impossible d'extraire le texte du CV '" + cv.getNomFichier() + "'. "
                 );
             }
 
@@ -80,8 +81,8 @@ public class AnalyseService {
             savedAnalyse.setPointsAmeliorer(toJson(iaResult.getImprovements()));
 
             // MISE À JOUR : On s'assure que le statut passe bien à TERMINEE
-            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.TERMINEE); // Doit être exactement ce statut
-            analyseIARepository.save(savedAnalyse); // Sauvegarde finale de l'analyse
+            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.TERMINEE);
+            analyseIARepository.save(savedAnalyse);
 
             // ─── PARTIE MISE À JOUR POUR LES RECOMMANDATIONS PYTHON ───
             if (iaResult.getRecommendations() != null) {
@@ -102,11 +103,11 @@ public class AnalyseService {
                     // 2. Gestion de la Catégorie
                     reco.setCategorie(iaReco.getCategory() != null ? iaReco.getCategory() : iaReco.getType());
 
-                    // 3. Gestion du Texte (Priorité à la description de l'IA Python)[cite: 2]
+                    // 3. Gestion du Texte (Priorité à la description de l'IA Python)
                     String contenu = (iaReco.getDescription() != null) ? iaReco.getDescription() : iaReco.getText();
                     reco.setTexte(contenu);
 
-                    // 4. Gestion de l'Action (Nécessite le champ 'action' dans Recommandation.java)[cite: 2]
+                    // 4. Gestion de l'Action
                     if (iaReco.getAction() != null) {
                         reco.setAction(iaReco.getAction());
                     }
@@ -127,6 +128,107 @@ public class AnalyseService {
             throw new RuntimeException("Erreur lors de l'analyse IA: " + e.getMessage());
         }
     }
+
+    // ═══════════════════════════════════════════════════════════════════
+// NOUVELLE MÉTHODE AJOUTÉE : lancerAnalysePrivee
+// ═══════════════════════════════════════════════════════════════════
+    @Transactional
+    public AnalyseResponse lancerAnalysePrivee(Long cvId, Long offrePriveeId) {
+        logger.info("Lancement analyse privée: cvId={}, offrePriveeId={}", cvId, offrePriveeId);
+
+        // Récupérer le CV
+        CV cv = cvRepository.findById(cvId)
+                .orElseThrow(() -> new ResourceNotFoundException("CV non trouvé avec l'id: " + cvId));
+
+        // Récupérer l'offre privée
+        OffrePrivee offrePrivee = offrePriveeRepository.findById(offrePriveeId)
+                .orElseThrow(() -> new ResourceNotFoundException("Offre privée non trouvée avec l'id: " + offrePriveeId));
+
+        // Vérifier que l'étudiant est bien le destinataire de l'offre
+        if (!cv.getEtudiant().getId().equals(offrePrivee.getDestinataire().getId())) {
+            throw new UnauthorizedException("Vous n'êtes pas autorisé à analyser cette offre privée");
+        }
+
+        // Créer l'entité AnalyseIA liée à l'offre privée
+        AnalyseIA analyse = new AnalyseIA();
+        analyse.setCv(cv);
+        analyse.setOffrePrivee(offrePrivee); // champ dédié aux offres privées
+        analyse.setStatut(AnalyseIA.StatutAnalyse.EN_COURS);
+        analyse.setDateAnalyse(LocalDateTime.now());
+        analyse.setScore(0.0);
+
+        AnalyseIA savedAnalyse = analyseIARepository.save(analyse);
+
+        try {
+            // Extraction du texte du CV
+            String cvText = extraireTexteCv(cv);
+
+            if (cvText == null || cvText.isBlank()) {
+                throw new RuntimeException("Impossible d'extraire le texte du CV '" + cv.getNomFichier() + "'.");
+            }
+
+            // Build description depuis OffrePrivee
+            String jobDescription = buildJobDescriptionPrivee(offrePrivee);
+
+            // Appel à l'IA
+            AIAnalysisResult iaResult = aiClientService.analyzeCV(cvText, jobDescription);
+
+            savedAnalyse.setScore(iaResult.getScore());
+            savedAnalyse.setCompetencesTrouvees(toJson(iaResult.getSkillsFound()));
+            savedAnalyse.setCompetencesManquantes(toJson(iaResult.getMissingSkills()));
+            savedAnalyse.setPointsForts(toJson(iaResult.getStrengths()));
+            savedAnalyse.setPointsAmeliorer(toJson(iaResult.getImprovements()));
+            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.TERMINEE);
+
+            analyseIARepository.save(savedAnalyse);
+
+            // Sauvegarder les recommandations
+            if (iaResult.getRecommendations() != null) {
+                for (AIAnalysisResult.AIRecommendation iaReco : iaResult.getRecommendations()) {
+                    Recommandation reco = new Recommandation();
+                    reco.setAnalyseIA(savedAnalyse);
+                    try {
+                        reco.setType(Recommandation.TypeRecommandation.valueOf(iaReco.getType().toUpperCase()));
+                    } catch (Exception e) {
+                        reco.setType(Recommandation.TypeRecommandation.AUTRE);
+                    }
+                    reco.setPriorite(iaReco.getPriority());
+                    reco.setCategorie(iaReco.getCategory() != null ? iaReco.getCategory() : iaReco.getType());
+                    String contenu = (iaReco.getDescription() != null) ? iaReco.getDescription() : iaReco.getText();
+                    reco.setTexte(contenu);
+                    if (iaReco.getAction() != null) {
+                        reco.setAction(iaReco.getAction());
+                    }
+                    recommandationRepository.save(reco);
+                }
+            }
+
+            logger.info("Analyse privée terminée: analyseId={}, score={}", savedAnalyse.getId(), savedAnalyse.getScore());
+            return mapToResponse(savedAnalyse);
+
+        } catch (Exception e) {
+            logger.error("Erreur lors de l'analyse privée: {}", e.getMessage(), e);
+            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.ERREUR);
+            savedAnalyse.setMessageErreur(e.getMessage());
+            analyseIARepository.save(savedAnalyse);
+            throw new RuntimeException("Erreur lors de l'analyse IA privée: " + e.getMessage());
+        }
+    }
+
+    // Helper pour construire la description depuis OffrePrivee
+    private String buildJobDescriptionPrivee(OffrePrivee offre) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Poste: ").append(offre.getTitre()).append("\n");
+        sb.append("Entreprise: ").append(offre.getEntreprise()).append("\n");
+        if (offre.getDescription() != null)
+            sb.append("Description: ").append(offre.getDescription()).append("\n");
+        if (offre.getTypeContrat() != null)
+            sb.append("Type de contrat: ").append(offre.getTypeContrat()).append("\n");
+        if (offre.getCompetences() != null)
+            sb.append("Compétences requises: ").append(offre.getCompetences()).append("\n");
+        return sb.toString();
+    }
+// ═══════════════════════════════════════════════════════════════════
 
     private String extraireTexteCv(CV cv) throws Exception {
         if (cv.getContenuTexte() != null && !cv.getContenuTexte().isBlank()) {
@@ -155,7 +257,7 @@ public class AnalyseService {
     @Transactional(readOnly = true)
     public AnalyseResponse getAnalyse(Long analyseId) {
         AnalyseIA analyse = analyseIARepository.findById(analyseId)
-                .orElseThrow(() -> new ResourceNotFoundException("Analyse", analyseId));
+                .orElseThrow(() -> new ResourceNotFoundException("Analyse ", analyseId));
         return mapToResponse(analyse);
     }
 
@@ -210,9 +312,17 @@ public class AnalyseService {
         response.setMessageErreur(analyse.getMessageErreur());
         response.setCvId(analyse.getCv().getId());
         response.setCvNom(analyse.getCv().getNomFichier());
-        response.setOffreEmploiId(analyse.getOffreEmploi().getId());
-        response.setOffreTitre(analyse.getOffreEmploi().getTitre());
-        response.setOffreEntreprise(analyse.getOffreEmploi().getEntreprise());
+
+        // Gestion dynamique : offreEmploi OU offrePrivee
+        if (analyse.getOffreEmploi() != null) {
+            response.setOffreEmploiId(analyse.getOffreEmploi().getId());
+            response.setOffreTitre(analyse.getOffreEmploi().getTitre());
+            response.setOffreEntreprise(analyse.getOffreEmploi().getEntreprise());
+        } else if (analyse.getOffrePrivee() != null) {
+            response.setOffrePriveeId(analyse.getOffrePrivee().getId());
+            response.setOffreTitre(analyse.getOffrePrivee().getTitre());
+            response.setOffreEntreprise(analyse.getOffrePrivee().getEntreprise());
+        }
 
         List<Recommandation> recommandations = recommandationRepository
                 .findByAnalyseIAIdOrderByPrioriteAsc(analyse.getId());

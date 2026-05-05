@@ -1,20 +1,17 @@
 package com.ahmed.pfa.cvplatform.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * DTO pour le résultat d'une analyse IA
+ DTO pour le résultat d'une analyse IA
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AnalyseResponse {
-
     private Long id;
     private Double score;
     private List<String> competencesTrouvees;
@@ -29,12 +26,14 @@ public class AnalyseResponse {
     private Long cvId;
     private String cvNom;
 
-    // Informations Offre
+    // Informations Offre (publique)
     private Long offreEmploiId;
     private String offreTitre;
     private String offreEntreprise;
 
+    // Informations Offre (privée)
+    private Long offrePriveeId;
+
     // Recommandations
     private List<RecommandationResponse> recommandations;
-
 }
