@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map; // Ajout de l'import Map
 import java.util.stream.Collectors;
 
 @Service
@@ -44,17 +45,10 @@ public class UserService {
 
     @Transactional
     public UserProfileResponse register(RegisterRequest request) {
-        // Validation des mots de passe
-        /*if (!request.getMotDePasse().equals(request.getConfirmMotDePasse())) {
-            throw new IllegalArgumentException("Les mots de passe ne correspondent pas");
-        }*/
-
-        // Vérifier si l'email existe déjà
         if (utilisateurRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Cet email est déjà utilisé");
         }
 
-        // Sauvegarde selon le rôle
         if ("ETUDIANT".equalsIgnoreCase(request.getRole())) {
             Etudiant etudiant = new Etudiant();
             etudiant.setNom(request.getNom());
@@ -64,7 +58,6 @@ public class UserService {
             etudiant.setRole(request.getRole());
             etudiant.setTypeUtilisateur("ETUDIANT");
             etudiant.setDateCreation(LocalDateTime.now());
-            // Champs spécifiques étudiant
             etudiant.setNiveauEtude(request.getNiveauEtude());
             etudiant.setDomaineEtude(request.getDomaineEtude());
             etudiant.setUniversite(request.getUniversite());
@@ -79,12 +72,10 @@ public class UserService {
             admin.setRole(request.getRole());
             admin.setTypeUtilisateur("ADMIN");
             admin.setDateCreation(LocalDateTime.now());
-            // Champs spécifiques admin (optionnels)
             admin.setPermissions(String.valueOf(List.of("READ", "WRITE", "DELETE")));
             administrateurRepository.save(admin);
             return mapToProfileResponse(admin);
         } else {
-            // Utilisateur générique
             Utilisateur user = new Utilisateur();
             user.setNom(request.getNom());
             user.setPrenom(request.getPrenom());
@@ -162,7 +153,7 @@ public class UserService {
     }
 
     // =========================================================================
-    // ✅ MAPPER PRIVÉ
+    // ✅ MAPPER PRIVÉ (MODIFIÉ POUR LES STATS)
     // =========================================================================
 
     private UserProfileResponse mapToProfileResponse(Utilisateur user) {
@@ -178,6 +169,12 @@ public class UserService {
             response.setNiveauEtude(etudiant.getNiveauEtude());
             response.setDomaineEtude(etudiant.getDomaineEtude());
             response.setUniversite(etudiant.getUniversite());
+
+            // ✅ Récupération des statistiques d'analyse
+            Map<String, Object> stats = utilisateurRepository.getStudentStats(user.getId());
+            response.setTotalAnalyses(((Number) stats.get("total")).longValue());
+            response.setScoreMoyen(stats.get("moyenne") != null ? (Double) stats.get("moyenne") : 0.0);
+
         } else if (user instanceof Administrateur admin) {
             response.setPermissions(admin.getPermissions());
         }

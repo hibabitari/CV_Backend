@@ -3,6 +3,8 @@ package com.ahmed.pfa.cvplatform.service;
 import com.ahmed.pfa.cvplatform.dto.AIAnalysisResult;
 import com.ahmed.pfa.cvplatform.exception.IAServiceException;
 import com.ahmed.pfa.cvplatform.exception.IAServiceTimeoutException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,30 +12,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-/**
- * AI Client Service with Timeout Protection
- *
- * Calls external IA API (Python backend) with comprehensive error handling:
- * - Connection timeout: 5 seconds
- * - Read timeout: 30 seconds
- * - Automatic exception handling
- * - Detailed logging
- *
- * MODES:
- * - MOCK: Simulates IA responses (for development)
- * - REAL: Calls actual Python IA API (for production)
- *
- * @author Ahmed
- */
 @Service
 public class AIClientService {
 
@@ -43,260 +29,298 @@ public class AIClientService {
     @Qualifier("iaServiceRestTemplate")
     private RestTemplate restTemplate;
 
-    @Value("${ia.api.url:http://localhost:5000/analyze}")
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    // URL du pipeline Python FastAPI — port 8000 par défaut
+    // Configurez dans application.properties : ia.api.url=http://localhost:8000/analyze
+    @Value("${ia.api.url:http://localhost:8000/analyze}")
     private String iaApiUrl;
 
-    @Value("${ia.api.enabled:false}")
-    private boolean iaApiEnabled;
-
-    @Value("${ia.api.timeout.seconds:30}")
+    @Value("${ia.api.timeout.seconds:60}")
     private int timeoutSeconds;
 
-    @Value("${ia.mock.enabled:true}")
-    private boolean mockEnabled;
-
-    /**
-     * Analyze CV against job description
-     *
-     * @param cvText CV content
-     * @param jobDescription Job offer description
-     * @return Analysis result
-     * @throws IAServiceTimeoutException if request times out
-     * @throws IAServiceException if IA service fails
-     */
     public AIAnalysisResult analyzeCV(String cvText, String jobDescription) {
-        logger.info("Starting CV analysis - Mode: {}, API Enabled: {}",
-                mockEnabled ? "MOCK" : "REAL", iaApiEnabled);
+        logger.info("Appel Python pipeline — cvText: {} chars, jobDescription: {} chars",
+                cvText.length(), jobDescription.length());
 
         long startTime = System.currentTimeMillis();
 
         try {
-            AIAnalysisResult result;
-
-            if (mockEnabled) {
-                // MOCK MODE: Simulate IA response
-                result = generateMockAnalysis(cvText, jobDescription);
-            } else {
-                // REAL MODE: Call actual IA API with timeout protection
-                result = callRealIAApi(cvText, jobDescription);
-            }
+            AIAnalysisResult result = callPythonPipeline(cvText, jobDescription);
 
             long duration = System.currentTimeMillis() - startTime;
-            logger.info("CV analysis completed in {}ms - Score: {:.2f}%",
-                    duration, result.getScore());
+            logger.info("Analyse terminée en {}ms — score: {}", duration, result.getScore());
 
             return result;
 
         } catch (ResourceAccessException ex) {
             long duration = System.currentTimeMillis() - startTime;
-            logger.error("IA API timeout after {}ms", duration, ex);
-
+            logger.error("Timeout Python API après {}ms", duration, ex);
             throw new IAServiceTimeoutException(
-                    "L'analyse IA a dépassé le délai autorisé",
+                    "L'analyse IA a dépassé le délai autorisé. Vérifiez que Python FastAPI tourne sur le port 8000.",
                     ex,
                     timeoutSeconds * 1000L
             );
-
-        } catch (HttpClientErrorException ex) {
-            logger.error("IA API client error ({}): {}",
-                    ex.getStatusCode(), ex.getMessage());
-
-            throw new IAServiceException(
-                    "Erreur de requête vers le service IA: " + ex.getMessage(),
-                    "IA_CLIENT_ERROR",
-                    ex.getStatusCode().value()
-            );
-
-        } catch (HttpServerErrorException ex) {
-            logger.error("IA API server error ({}): {}",
-                    ex.getStatusCode(), ex.getMessage());
-
-            throw new IAServiceException(
-                    "Le service IA rencontre des problèmes techniques",
-                    "IA_SERVER_ERROR",
-                    ex.getStatusCode().value()
-            );
-
+        } catch (IAServiceException ex) {
+            throw ex;
         } catch (Exception ex) {
-            logger.error("Unexpected error during CV analysis", ex);
-
+            logger.error("Erreur inattendue lors de l'analyse", ex);
             throw new IAServiceException(
-                    "Erreur inattendue lors de l'analyse: " + ex.getMessage(),
-                    ex
+                    "Erreur lors de l'analyse: " + ex.getMessage(), ex
             );
         }
     }
 
     /**
-     * Call real Python IA API with timeout protection
-     */
-    private AIAnalysisResult callRealIAApi(String cvText, String jobDescription) {
-        logger.debug("Calling real IA API at: {}", iaApiUrl);
-
-        try {
-            // Prepare request headers
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-
-            // Prepare request body
-            Map<String, String> requestBody = new HashMap<>();
-            requestBody.put("cv_text", cvText);
-            requestBody.put("job_description", jobDescription);
-
-            HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
-
-            logger.debug("Sending request to IA API with timeout: {}s", timeoutSeconds);
-            long startTime = System.currentTimeMillis();
-
-            // Make request with timeout (configured in RestTemplate)
-            ResponseEntity<AIAnalysisResult> response = restTemplate.exchange(
-                    iaApiUrl,
-                    HttpMethod.POST,
-                    entity,
-                    AIAnalysisResult.class
-            );
-
-            long duration = System.currentTimeMillis() - startTime;
-            logger.info("IA API responded in {}ms with status: {}",
-                    duration, response.getStatusCode());
-
-            if (!response.getStatusCode().is2xxSuccessful()) {
-                throw new IAServiceException(
-                        "IA API returned non-success status: " + response.getStatusCode(),
-                        "IA_NON_SUCCESS_STATUS",
-                        response.getStatusCode().value()
-                );
-            }
-
-            AIAnalysisResult result = response.getBody();
-
-            if (result == null) {
-                throw new IAServiceException(
-                        "IA API returned empty response",
-                        "IA_EMPTY_RESPONSE"
-                );
-            }
-
-            return result;
-
-        } catch (ResourceAccessException ex) {
-            // This includes timeout exceptions
-            logger.error("Resource access error when calling IA API", ex);
-            throw ex; // Re-throw to be caught by main try-catch
-
-        } catch (Exception ex) {
-            logger.error("Unexpected error when calling IA API", ex);
-            throw new IAServiceException(
-                    "Erreur lors de l'appel au service IA: " + ex.getMessage(),
-                    ex
-            );
-        }
-    }
-
-    /**
-     * Generate MOCK analysis for development/testing
+     * Appelle le pipeline Python et mappe la réponse vers AIAnalysisResult.
      *
-     * Simulates realistic IA response with controlled delay
+     * Le pipeline Python retourne :
+     * {
+     *   "status": "success",
+     *   "score": { "score_final": 72.5, "niveau": "Bon", "detail": {...} },
+     *   "recommandations": {
+     *     "manquants": [...],
+     *     "bonus": [...],
+     *     "resume": "...",
+     *     "blocks": [...]
+     *   },
+     *   "cv":    { "sections": { "SKILL": "...", "EXPERIENCE": "..." } },
+     *   "offre": { "sections": { "REQUIREMENT": "..." } }
+     * }
      */
-    private AIAnalysisResult generateMockAnalysis(String cvText, String jobDescription) {
-        logger.info("Generating MOCK IA analysis (development mode)");
+    private AIAnalysisResult callPythonPipeline(String cvText, String jobDescription) throws Exception {
 
-        // Simulate network/processing delay (500ms - well under timeout)
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            logger.warn("Mock delay interrupted");
+        // ── 1. Construire le body pour Python ────────────────────────────
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, String> body = new HashMap<>();
+        body.put("cv_text", cvText);
+        body.put("job_description", jobDescription);
+
+        HttpEntity<Map<String, String>> entity = new HttpEntity<>(body, headers);
+
+        logger.debug("POST {} — payload prêt", iaApiUrl);
+
+        // ── 2. Appel HTTP ─────────────────────────────────────────────────
+        ResponseEntity<String> response = restTemplate.exchange(
+                iaApiUrl,
+                HttpMethod.POST,
+                entity,
+                String.class
+        );
+
+        if (!response.getStatusCode().is2xxSuccessful() || response.getBody() == null) {
+            throw new IAServiceException(
+                    "Python API a retourné: " + response.getStatusCode(),
+                    "IA_NON_SUCCESS_STATUS",
+                    response.getStatusCode().value()
+            );
         }
 
+        // ── 3. Parser la réponse JSON du pipeline Python ──────────────────
+        JsonNode root = objectMapper.readTree(response.getBody());
+
+        if (!"success".equals(root.path("status").asText())) {
+            String msg = root.path("message").asText("Erreur inconnue du pipeline");
+            throw new IAServiceException("Pipeline Python en erreur: " + msg, "PIPELINE_ERROR");
+        }
+
+        return mapPythonResponseToResult(root);
+    }
+
+    /**
+     * Mappe la réponse JSON de Python vers AIAnalysisResult.
+     *
+     * Gère les deux cas :
+     *   - score = { score_final, niveau, detail }  (scoring.py)
+     *   - recommandations = { manquants, bonus, resume, blocks } (recommendation.py)
+     */
+    private AIAnalysisResult mapPythonResponseToResult(JsonNode root) {
         AIAnalysisResult result = new AIAnalysisResult();
 
-        // Generate realistic score (60-95%)
-        result.setScore(60.0 + Math.random() * 35);
+        // ── Score ─────────────────────────────────────────────────────────
+        JsonNode scoreNode = root.path("score");
+        double scoreFinal = scoreNode.path("score_final").asDouble(0.0);
+        result.setScore(scoreFinal);
 
-        // Mock data - realistic but fake
-        result.setSkillsFound(Arrays.asList(
-                "Java", "Spring Boot", "MySQL", "Git", "RESTful APIs"
-        ));
+        // ── Compétences trouvées vs manquantes ────────────────────────────
+        // Python ne calcule pas skillsFound directement — on le déduit :
+        // skillsFound  = compétences dans le CV ET dans l'offre (via sections)
+        // missingSkills = recommandations.manquants
 
-        result.setMissingSkills(Arrays.asList(
-                "Docker", "Kubernetes", "Microservices", "AWS"
-        ));
+        JsonNode recoNode = root.path("recommandations");
 
-        result.setStrengths(Arrays.asList(
-                "Expérience solide en développement backend Java",
-                "Bonne maîtrise des frameworks Spring",
-                "Compétences en bases de données relationnelles"
-        ));
+        // Compétences manquantes (depuis recommandation.py)
+        result.setMissingSkills(jsonArrayToList(recoNode.path("manquants")));
 
-        result.setImprovements(Arrays.asList(
-                "Acquérir des compétences en conteneurisation",
-                "Se former sur les architectures cloud"
-        ));
+        // Compétences trouvées = skills du CV qui matchent l'offre
+        // Extraites depuis les sections cv.SKILL si disponible
+        JsonNode cvSections = root.path("cv").path("sections");
+        List<String> skillsTrouves = extractSkillsFromSection(cvSections.path("SKILL").asText(""));
+        result.setSkillsFound(skillsTrouves);
 
-        // Recommendations
-        result.setRecommendations(Arrays.asList(
-                new AIAnalysisResult.AIRecommendation(
+        // ── Points forts ──────────────────────────────────────────────────
+        // Construits depuis le score détaillé et le niveau
+        String niveau = scoreNode.path("niveau").asText("Bon");
+        JsonNode detail = scoreNode.path("detail");
+        result.setStrengths(buildPointsForts(niveau, detail, cvSections));
+
+        // ── Points à améliorer ────────────────────────────────────────────
+        List<String> improvements = new ArrayList<>();
+        String resume = recoNode.path("resume").asText("");
+        if (!resume.isBlank()) improvements.add(resume);
+        List<String> bonus = jsonArrayToList(recoNode.path("bonus"));
+        bonus.stream().limit(2).forEach(b -> improvements.add("Renforcer : " + b));
+        result.setImprovements(improvements);
+
+        // ── Recommandations structurées ───────────────────────────────────
+        List<AIAnalysisResult.AIRecommendation> recommendations = new ArrayList<>();
+        JsonNode blocks = recoNode.path("blocks");
+        if (blocks.isArray()) {
+            for (JsonNode block : blocks) {
+                String title = block.path("title").asText("");
+                String value = block.path("value").asText("");
+
+                // Blocs avec items (listes de compétences)
+                if (block.has("items")) {
+                    List<String> items = jsonArrayToList(block.path("items"));
+                    if (!items.isEmpty()) {
+                        String texte = String.join(", ", items);
+                        recommendations.add(new AIAnalysisResult.AIRecommendation(
+                                toEnumType(title), texte, prioriteFromTitle(title), categoryFromTitle(title), null, null
+                        ));
+                    }
+                } else if (!value.isBlank()) {
+                    recommendations.add(new AIAnalysisResult.AIRecommendation(
+                            toEnumType(title), value, prioriteFromTitle(title), categoryFromTitle(title), null, null
+                    ));
+                }
+            }
+        }
+
+        // Ajouter recommandations bonus/formation si blocks vides
+        if (recommendations.isEmpty()) {
+            List<String> manquants = result.getMissingSkills();
+            if (!manquants.isEmpty()) {
+                recommendations.add(new AIAnalysisResult.AIRecommendation(
                         "COMPETENCE_A_ACQUERIR",
-                        "Suivre une formation Docker et Kubernetes pour répondre aux exigences du poste",
-                        1,
-                        "DEVOPS"
-                ),
-                new AIAnalysisResult.AIRecommendation(
-                        "FORMATION_SUGGEREE",
-                        "Certification AWS Solutions Architect pour renforcer le profil",
-                        2,
-                        "CLOUD"
-                ),
-                new AIAnalysisResult.AIRecommendation(
-                        "AMELIORATION_CV",
-                        "Mettre en avant les projets Spring Boot dans la section expérience",
-                        2,
-                        "CV"
-                ),
-                new AIAnalysisResult.AIRecommendation(
-                        "CONSEIL_ENTRETIEN",
-                        "Préparer des exemples concrets de résolution de problèmes en backend",
-                        3,
-                        "ENTRETIEN"
-                )
-        ));
+                        "Acquérir les compétences manquantes : " + String.join(", ", manquants),
+                        1, "FORMATION", null, null
+                ));
+            }
+            if (!resume.isBlank()) {
+                recommendations.add(new AIAnalysisResult.AIRecommendation(
+                        "CONSEIL_ENTRETIEN", resume, 2, "ENTRETIEN", null, null
+                ));
+            }
+        }
 
-        logger.info("MOCK analysis completed - Score: {:.2f}%", result.getScore());
+        result.setRecommendations(recommendations);
+
+        logger.info("Mapping Python→Java terminé — score={}, skillsFound={}, manquants={}, reco={}",
+                scoreFinal, skillsTrouves.size(), result.getMissingSkills().size(), recommendations.size());
+
         return result;
     }
 
+    // ════════════════════════════════════════════════════════════════════════
+    // MÉTHODES UTILITAIRES
+    // ════════════════════════════════════════════════════════════════════════
+
+    private List<String> jsonArrayToList(JsonNode node) {
+        List<String> list = new ArrayList<>();
+        if (node != null && node.isArray()) {
+            for (JsonNode item : node) {
+                String val = item.asText("").trim();
+                if (!val.isBlank()) list.add(val);
+            }
+        }
+        return list;
+    }
+
     /**
-     * Test IA API availability
-     *
-     * @return true if IA API is reachable, false otherwise
+     * Extrait une liste de compétences depuis le texte brut de la section SKILL du CV.
+     * Retourne les 8 premiers mots-clés significatifs.
      */
-    public boolean testIAApiConnection() {
-        if (mockEnabled) {
-            logger.info("MOCK mode enabled - skipping real API test");
-            return true;
+    private List<String> extractSkillsFromSection(String skillText) {
+        List<String> skills = new ArrayList<>();
+        if (skillText == null || skillText.isBlank()) return skills;
+
+        String[] tokens = skillText.split("[,;\\n\\r/|]+");
+        for (String token : tokens) {
+            String t = token.trim();
+            if (t.length() >= 2 && t.length() <= 30 && !t.isBlank()) {
+                skills.add(capitalize(t));
+                if (skills.size() >= 8) break;
+            }
+        }
+        return skills;
+    }
+
+    private List<String> buildPointsForts(String niveau, JsonNode detail, JsonNode cvSections) {
+        List<String> forts = new ArrayList<>();
+
+        double skillScore = detail.path("SKILL").asDouble(0);
+        double expScore   = detail.path("EXPERIENCE").asDouble(0);
+        double eduScore   = detail.path("EDUCATION").asDouble(0);
+
+        if (skillScore >= 50) forts.add("Compétences techniques bien alignées avec l'offre (" + Math.round(skillScore) + "%)");
+        if (expScore   >= 50) forts.add("Expérience professionnelle pertinente (" + Math.round(expScore) + "%)");
+        if (eduScore   >= 50) forts.add("Formation académique adaptée au poste (" + Math.round(eduScore) + "%)");
+
+        if (forts.isEmpty()) {
+            forts.add("Profil de niveau : " + niveau);
+            String exp = cvSections.path("EXPERIENCE").asText("").trim();
+            if (!exp.isBlank()) forts.add("Expérience mentionnée dans le CV");
         }
 
-        try {
-            logger.info("Testing IA API connection at: {}", iaApiUrl);
+        return forts;
+    }
 
+    private String capitalize(String s) {
+        if (s == null || s.isBlank()) return s;
+        return Character.toUpperCase(s.charAt(0)) + s.substring(1);
+    }
+
+    private String toEnumType(String title) {
+        if (title == null) return "CONSEIL_ENTRETIEN";
+        String t = title.toLowerCase();
+        if (t.contains("manqu") || t.contains("ajouter")) return "COMPETENCE_A_ACQUERIR";
+        if (t.contains("utile") || t.contains("renforc")) return "FORMATION_SUGGEREE";
+        if (t.contains("domai")) return "AMELIORATION_CV";
+        return "CONSEIL_ENTRETIEN";
+    }
+
+    private int prioriteFromTitle(String title) {
+        if (title == null) return 3;
+        String t = title.toLowerCase();
+        if (t.contains("manqu") || t.contains("ajouter")) return 1;
+        if (t.contains("utile") || t.contains("renforc")) return 2;
+        return 3;
+    }
+
+    private String categoryFromTitle(String title) {
+        if (title == null) return "ENTRETIEN";
+        String t = title.toLowerCase();
+        if (t.contains("manqu") || t.contains("ajouter")) return "FORMATION";
+        if (t.contains("utile") || t.contains("renforc")) return "CLOUD";
+        if (t.contains("domai")) return "CV";
+        return "ENTRETIEN";
+    }
+
+    public boolean testIAApiConnection() {
+        try {
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<Void> entity = new HttpEntity<>(headers);
-
             ResponseEntity<String> response = restTemplate.exchange(
                     iaApiUrl.replace("/analyze", "/health"),
-                    HttpMethod.GET,
-                    entity,
-                    String.class
+                    HttpMethod.GET, entity, String.class
             );
-
-            boolean isAvailable = response.getStatusCode().is2xxSuccessful();
-            logger.info("IA API connection test: {}", isAvailable ? "SUCCESS" : "FAILED");
-
-            return isAvailable;
-
+            return response.getStatusCode().is2xxSuccessful();
         } catch (Exception ex) {
-            logger.error("IA API connection test failed", ex);
+            logger.error("Test connexion Python API échoué", ex);
             return false;
         }
     }

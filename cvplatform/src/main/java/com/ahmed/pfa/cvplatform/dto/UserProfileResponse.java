@@ -26,4 +26,8 @@ public class UserProfileResponse {
 
     // Champs spécifiques pour Administrateur
     private String permissions;
+
+    //  AJOUT DES CHAMPS POUR LES STATISTIQUES (Dashboard Admin)
+    private Long totalAnalyses;
+    private Double scoreMoyen;
 }

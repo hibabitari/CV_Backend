@@ -48,6 +48,12 @@ public class Recommandation {
     private AnalyseIA analyseIA;
 
     /**
+     * Action concrète suggérée par l'IA
+     */
+    @Column(columnDefinition = "TEXT")
+    private String action;
+
+    /**
      * Types de recommandation
      */
     public enum TypeRecommandation {
@@ -55,6 +61,11 @@ public class Recommandation {
         EXPERIENCE_A_VALORISER,
         FORMATION_SUGGEREE,
         AMELIORATION_CV,
-        CONSEIL_ENTRETIEN
+        CONSEIL_ENTRETIEN,
+        FORMATION,
+        CLOUD,
+        CV,
+        ENTRETIEN,
+        AUTRE
     }
 }

@@ -29,39 +29,27 @@ public class AnalyseService {
 
     private static final Logger logger = LoggerFactory.getLogger(AnalyseService.class);
 
-    @Autowired
-    private AnalyseIARepository analyseIARepository;
+    @Autowired private AnalyseIARepository analyseIARepository;
+    @Autowired private RecommandationRepository recommandationRepository;
+    @Autowired private CVRepository cvRepository;
+    @Autowired private OffreEmploiRepository offreEmploiRepository;
+    @Autowired private AIClientService aiClientService;
+    @Autowired private ObjectMapper objectMapper;
 
-    @Autowired
-    private RecommandationRepository recommandationRepository;
+    // ── Services déjà existants dans ton projet ───────────────────────────
+    @Autowired private FileStorageService fileStorageService;
+    @Autowired private CvTextExtractionService cvTextExtractionService;
 
-    @Autowired
-    private CVRepository cvRepository;
-
-    @Autowired
-    private OffreEmploiRepository offreEmploiRepository;
-
-    @Autowired
-    private AIClientService aiClientService;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    /**
-     * Lancer une nouvelle analyse
-     */
     @Transactional
     public AnalyseResponse lancerAnalyse(Long cvId, Long offreEmploiId) {
         logger.info("Lancement analyse: cvId={}, offreId={}", cvId, offreEmploiId);
 
-        // 1. Récupérer CV et Offre
         CV cv = cvRepository.findById(cvId)
                 .orElseThrow(() -> new ResourceNotFoundException("CV", cvId));
 
         OffreEmploi offre = offreEmploiRepository.findById(offreEmploiId)
                 .orElseThrow(() -> new ResourceNotFoundException("Offre d'emploi", offreEmploiId));
 
-        // 2. Créer entité AnalyseIA (statut EN_COURS)
         AnalyseIA analyse = new AnalyseIA();
         analyse.setCv(cv);
         analyse.setOffreEmploi(offre);
@@ -71,102 +59,126 @@ public class AnalyseService {
         AnalyseIA savedAnalyse = analyseIARepository.save(analyse);
 
         try {
-            // 3. Préparer les données (MOCK TEXT)
-            String cvText = "Développeur Java avec 3 ans d'expérience en Spring Boot, " +
-                    "MySQL, Git. Compétences: Java 17, Spring Framework, REST APIs, " +
-                    "bases de données relationnelles. Formation en informatique.";
+            // Extraction du texte
+            String cvText = extraireTexteCv(cv);
+
+            if (cvText == null || cvText.isBlank()) {
+                throw new RuntimeException(
+                        "Impossible d'extraire le texte du CV '" + cv.getNomFichier() + "'."
+                );
+            }
+
+            logger.info("Texte extrait: {} caractères pour '{}'", cvText.length(), cv.getNomFichier());
 
             String jobDescription = buildJobDescription(offre);
-
-            // 4. Appeler l'IA (MOCK pour l'instant)
             AIAnalysisResult iaResult = aiClientService.analyzeCV(cvText, jobDescription);
 
-            // 5. Sauvegarder les résultats
             savedAnalyse.setScore(iaResult.getScore());
             savedAnalyse.setCompetencesTrouvees(toJson(iaResult.getSkillsFound()));
             savedAnalyse.setCompetencesManquantes(toJson(iaResult.getMissingSkills()));
             savedAnalyse.setPointsForts(toJson(iaResult.getStrengths()));
             savedAnalyse.setPointsAmeliorer(toJson(iaResult.getImprovements()));
-            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.TERMINEE);
 
-            analyseIARepository.save(savedAnalyse);
+            // MISE À JOUR : On s'assure que le statut passe bien à TERMINEE
+            savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.TERMINEE); // Doit être exactement ce statut
+            analyseIARepository.save(savedAnalyse); // Sauvegarde finale de l'analyse
 
-            // 6. Sauvegarder les recommandations
+            // ─── PARTIE MISE À JOUR POUR LES RECOMMANDATIONS PYTHON ───
             if (iaResult.getRecommendations() != null) {
                 for (AIAnalysisResult.AIRecommendation iaReco : iaResult.getRecommendations()) {
                     Recommandation reco = new Recommandation();
                     reco.setAnalyseIA(savedAnalyse);
-                    reco.setType(Recommandation.TypeRecommandation.valueOf(iaReco.getType()));
-                    reco.setTexte(iaReco.getText());
+
+                    // Type de recommandation
+                    try {
+                        reco.setType(Recommandation.TypeRecommandation.valueOf(iaReco.getType().toUpperCase()));
+                    } catch (Exception e) {
+                        reco.setType(Recommandation.TypeRecommandation.AUTRE);
+                    }
+
+                    // 1. Gestion de la Priorité
                     reco.setPriorite(iaReco.getPriority());
-                    reco.setCategorie(iaReco.getCategory());
+
+                    // 2. Gestion de la Catégorie
+                    reco.setCategorie(iaReco.getCategory() != null ? iaReco.getCategory() : iaReco.getType());
+
+                    // 3. Gestion du Texte (Priorité à la description de l'IA Python)[cite: 2]
+                    String contenu = (iaReco.getDescription() != null) ? iaReco.getDescription() : iaReco.getText();
+                    reco.setTexte(contenu);
+
+                    // 4. Gestion de l'Action (Nécessite le champ 'action' dans Recommandation.java)[cite: 2]
+                    if (iaReco.getAction() != null) {
+                        reco.setAction(iaReco.getAction());
+                    }
 
                     recommandationRepository.save(reco);
                 }
             }
+            // ──────────────────────────────────────────────────────────
 
-            logger.info("Analyse terminée avec succès: analyseId={}, score={}",
-                    savedAnalyse.getId(), savedAnalyse.getScore());
-
-            // 7. Retourner le résultat
+            logger.info("Analyse terminée: analyseId={}, score={}", savedAnalyse.getId(), savedAnalyse.getScore());
             return mapToResponse(savedAnalyse);
 
         } catch (Exception e) {
             logger.error("Erreur lors de l'analyse: {}", e.getMessage(), e);
-
-            // Marquer l'analyse comme en erreur
             savedAnalyse.setStatut(AnalyseIA.StatutAnalyse.ERREUR);
             savedAnalyse.setMessageErreur(e.getMessage());
             analyseIARepository.save(savedAnalyse);
-
             throw new RuntimeException("Erreur lors de l'analyse IA: " + e.getMessage());
         }
     }
 
-    /**
-     * Récupérer une analyse par ID
-     */
+    private String extraireTexteCv(CV cv) throws Exception {
+        if (cv.getContenuTexte() != null && !cv.getContenuTexte().isBlank()) {
+            logger.info("✅ Texte récupéré depuis BDD pour '{}'", cv.getNomFichier());
+            return cv.getContenuTexte();
+        }
+
+        logger.info("Relecture fichier via FileStorageService: '{}'", cv.getCheminFichier());
+        byte[] bytes = fileStorageService.loadFileBytes(cv.getCheminFichier());
+
+        String texte = cvTextExtractionService.extractPlainText(
+                bytes,
+                cv.getNomFichier(),
+                cv.getTypeFichier()
+        );
+
+        if (texte != null && !texte.isBlank()) {
+            cv.setContenuTexte(texte);
+            cvRepository.save(cv);
+            logger.info("Texte sauvegardé en BDD pour les prochaines analyses");
+        }
+
+        return texte;
+    }
+
     @Transactional(readOnly = true)
     public AnalyseResponse getAnalyse(Long analyseId) {
         AnalyseIA analyse = analyseIARepository.findById(analyseId)
                 .orElseThrow(() -> new ResourceNotFoundException("Analyse", analyseId));
-
         return mapToResponse(analyse);
     }
 
-    /**
-     * Récupérer toutes les analyses d'un CV
-     */
     @Transactional(readOnly = true)
     public List<AnalyseResponse> getAnalysesByCv(Long cvId) {
-        List<AnalyseIA> analyses = analyseIARepository.findByCvId(cvId);
-        return analyses.stream()
+        return analyseIARepository.findByCvId(cvId).stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Construire description complète de l'offre
-     */
     private String buildJobDescription(OffreEmploi offre) {
         StringBuilder sb = new StringBuilder();
         sb.append("Poste: ").append(offre.getTitre()).append("\n");
         sb.append("Entreprise: ").append(offre.getEntreprise()).append("\n");
-        if (offre.getDescription() != null) {
+        if (offre.getDescription() != null)
             sb.append("Description: ").append(offre.getDescription()).append("\n");
-        }
-        if (offre.getTypeContrat() != null) {
+        if (offre.getTypeContrat() != null)
             sb.append("Type de contrat: ").append(offre.getTypeContrat()).append("\n");
-        }
-        if (offre.getCompetences() != null) {
+        if (offre.getCompetences() != null)
             sb.append("Compétences requises: ").append(offre.getCompetences()).append("\n");
-        }
         return sb.toString();
     }
 
-    /**
-     * Convertir liste en JSON
-     */
     private String toJson(List<String> list) {
         try {
             return objectMapper.writeValueAsString(list);
@@ -176,25 +188,17 @@ public class AnalyseService {
         }
     }
 
-    /**
-     * Convertir JSON en liste
-     */
     private List<String> fromJson(String json) {
         try {
             return objectMapper.readValue(json,
                     objectMapper.getTypeFactory().constructCollectionType(List.class, String.class));
         } catch (Exception e) {
-            logger.error("Erreur désérialisation JSON", e);
             return List.of();
         }
     }
 
-    /**
-     * Mapper AnalyseIA vers AnalyseResponse
-     */
     private AnalyseResponse mapToResponse(AnalyseIA analyse) {
         AnalyseResponse response = new AnalyseResponse();
-
         response.setId(analyse.getId());
         response.setScore(analyse.getScore());
         response.setCompetencesTrouvees(fromJson(analyse.getCompetencesTrouvees()));
@@ -204,26 +208,17 @@ public class AnalyseService {
         response.setDateAnalyse(analyse.getDateAnalyse());
         response.setStatut(analyse.getStatut().name());
         response.setMessageErreur(analyse.getMessageErreur());
-
-        // Infos CV
         response.setCvId(analyse.getCv().getId());
         response.setCvNom(analyse.getCv().getNomFichier());
-
-        // Infos Offre
         response.setOffreEmploiId(analyse.getOffreEmploi().getId());
         response.setOffreTitre(analyse.getOffreEmploi().getTitre());
         response.setOffreEntreprise(analyse.getOffreEmploi().getEntreprise());
 
-        // Recommandations
         List<Recommandation> recommandations = recommandationRepository
                 .findByAnalyseIAIdOrderByPrioriteAsc(analyse.getId());
-
         response.setRecommandations(
-                recommandations.stream()
-                        .map(RecommandationResponse::new)
-                        .collect(Collectors.toList())
+                recommandations.stream().map(RecommandationResponse::new).collect(Collectors.toList())
         );
-
         return response;
     }
 }

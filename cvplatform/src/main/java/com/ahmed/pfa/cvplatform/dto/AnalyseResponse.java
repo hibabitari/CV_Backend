@@ -36,4 +36,5 @@ public class AnalyseResponse {
 
     // Recommandations
     private List<RecommandationResponse> recommandations;
+
 }
