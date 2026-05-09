@@ -105,6 +105,20 @@ public class SecurityConfig {
 
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/api/jobs/etudiant/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/api/offres-privees/admin/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.POST, "/api/offres-privees").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.PUT, "/api/offres-privees/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.DELETE, "/api/offres-privees/**").hasRole("ADMIN")
+                        
+                        .requestMatchers(HttpMethod.PATCH, "/api/offres-privees/**").hasRole("ADMIN")
+
                         // 5. All other endpoints require valid JWT
                         .anyRequest().authenticated()
                 )
