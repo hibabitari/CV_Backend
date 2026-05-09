@@ -103,6 +103,8 @@ public class SecurityConfig {
 
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
+
                         // 5. All other endpoints require valid JWT
                         .anyRequest().authenticated()
                 )
